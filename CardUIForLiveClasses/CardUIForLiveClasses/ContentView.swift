@@ -25,9 +25,15 @@ struct ContentView: View {
 
                         HStack(spacing: 4) {
                             Text("Live")
-                            Circle()
-                                .fill(.white)
-                                .frame(width: 14, height: 14)
+                            ZStack {
+                                Circle()
+                                    .stroke(Color.white, lineWidth: 2)
+                                    .frame(width: 14, height: 14)
+
+                                Circle()
+                                    .fill(Color.white)
+                                    .frame(width: 7, height: 7)
+                            }
                         }
                         .font(.caption).bold()
                         .foregroundColor(.white)
@@ -63,21 +69,27 @@ struct ContentView: View {
                     }
                     HStack {
                         Spacer()
-                        Text("Join Now")
-                            .font(.headline)
-                            .foregroundColor(Color(red: 0.2, green: 0.3, blue: 0.5))
-                            .padding(.vertical, 12)
-                            .padding(.horizontal, 40)
-                            .background(
-                                Capsule()
-                                    .fill(Color.white)
-                                    .shadow(radius:5)
-                                    .overlay(
-                                        Capsule().stroke(Color(red: 50/255,green: 110/255,blue: 165/255))
-                                    )
-                            )
+                        Capsule()
+                            .fill(Color.white)
+                            .frame(width: 170, height: 56)
+                            .overlay(
+                                
+                                Text("Join Now")
+                                    .font(.headline)
+                                    .foregroundColor(Color(red: 0.2, green: 0.3, blue: 0.5))
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 36)
+                                    .background(
+                                        Capsule()
+                                            .fill(Color.white.opacity(0.85))
+                                            .overlay(
+                                                Capsule()
+                                                    .stroke(
+                                                        Color(red: 50/255, green: 110/255, blue: 165/255).opacity(0.1),
+                                                        lineWidth: 2))))
                     }
-                    .offset(y: 20)                }
+                    .offset(y: 20)
+                }
                 .padding(20)
             }
             .padding()
